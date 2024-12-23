@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-operations-table
+      author: Mariya
+      changes:
+        - createTable:
+            tableName: operations
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    foreignKey: true
+                    nullable: false
+              - column:
+                  name: related_id
+                  type: uuid
+                  constraints:
+                    foreignKey: true
+                    nullable: false
+              - column:
+                  name: operation_type
+                  type: varchar(30)
+                  constraints:
+                    foreignKey: true
+                    nullable: false

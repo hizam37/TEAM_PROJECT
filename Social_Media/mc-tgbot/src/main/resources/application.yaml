@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: TgBot
+
+  data:
+    redis:
+      host: docker-redis-1
+      port: 6379
+
+telegram:
+  bot:
+    username: SocialNetwork49Bot
+    token: secret_token
+
+server:
+  port: 8093

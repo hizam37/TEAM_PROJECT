@@ -1,0 +1,40 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: mc-post
+
+  jpa:
+    generate-ddl: false
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    url: jdbc:postgresql://postgres_db/mc_post
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    show-sql: true
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
+  kafka:
+    bootstrap-servers: 79.174.80.200:9092
+    kafkaMessageTopicForNotification: "notification-topic"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://mc-eureka-conteiner:8888/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost
+
+sonar:
+  - qp_097fc7d5711be538609763b02245a7bdd7703573
